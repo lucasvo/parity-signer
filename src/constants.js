@@ -50,7 +50,8 @@ export const SubstrateNetworkKeys = Object.freeze({
 	KUSAMA_DEV:
 		'0x5e9679182f658e148f33d3f760f11179977398bb3da8d1f0bf7b267fe6b3ebb0',
 	SUBSTRATE_DEV:
-		'0x0d667fd278ec412cd9fccdb066f09ed5b4cfd9c9afa9eb747213acb02b1e70bc' // substrate --dev commit ac6a2a783f0e1f4a814cf2add40275730cd41be1 hosted on wss://dev-node.substrate.dev .
+		'0x0d667fd278ec412cd9fccdb066f09ed5b4cfd9c9afa9eb747213acb02b1e70bc', // substrate --dev commit ac6a2a783f0e1f4a814cf2add40275730cd41be1 hosted on wss://dev-node.substrate.dev .
+  CENTRIFUGE_AMBER: '0x14ad1761c377ea2aac9a1f7edc648c8b7b64f2f7a1667330f4b5eeec65ab8a3f' // https://polkascan.io/pre/centrifuge-amber/block/0
 });
 
 const unknownNetworkBase = {
@@ -102,6 +103,15 @@ const substrateNetworkBase = {
 		prefix: 42,
 		title: 'Substrate Development',
 		unit: 'UNIT'
+	},
+  [SubstrateNetworkKeys.CENTRIFUGE_AMBER]: {
+		color: '#fcc367',
+		decimals: 12,
+		genesisHash: SubstrateNetworkKeys.CENTRIFUGE_AMBER,
+		pathId: 'centrifuge_amber',
+		prefix: 42,
+		title: 'Centrifuge Amber',
+		unit: 'ARAD'
 	}
 	// [SubstrateNetworkKeys.POLKADOT]: {
 	//   color: '#e6007a',
