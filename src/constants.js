@@ -49,7 +49,7 @@ export const SubstrateNetworkKeys = Object.freeze({
 		'0xe3777fa922cafbff200cadeaea1a76bd7898ad5b89f7848999058b50e715f636',
 	KUSAMA_DEV:
 		'0x5e9679182f658e148f33d3f760f11179977398bb3da8d1f0bf7b267fe6b3ebb0',
-	CENTRIFUGE: '0x0000000000000000000000000000000000000000000000000000000000000001', // Needs to be replaced after mainnet genesis hash is finalized 
+	CENTRIFUGE: '0x0000000000000000000000000000000000000000000000000000000000000001', // Needs to be replaced after mainnet genesis hash is finalized
 	CENTRIFUGE_AMBER: '0x14ad1761c377ea2aac9a1f7edc648c8b7b64f2f7a1667330f4b5eeec65ab8a3f', // https://polkascan.io/pre/centrifuge-amber/block/0
 	SUBSTRATE_DEV:
 		'0x0d667fd278ec412cd9fccdb066f09ed5b4cfd9c9afa9eb747213acb02b1e70bc' // substrate --dev commit ac6a2a783f0e1f4a814cf2add40275730cd41be1 hosted on wss://dev-node.substrate.dev .
@@ -105,7 +105,7 @@ const substrateNetworkBase = {
 		title: 'Substrate Development',
 		unit: 'UNIT'
 	},
- 	[SubstrateNetworkKeys.CENTRIFUGE]: {
+ 	[SubstrateNetworkKeys.CENTRIFUGE_AMBER]: {
 		color: '#fcc367',
 		decimals: 18,
 		genesisHash: SubstrateNetworkKeys.CENTRIFUGE_AMBER,
@@ -114,7 +114,7 @@ const substrateNetworkBase = {
 		title: 'Centrifuge Amber Testnet',
 		unit: 'ARAD'
 	},
- 	[SubstrateNetworkKeys.CENTRIFUGE_AMBER]: {
+ 	[SubstrateNetworkKeys.CENTRIFUGE]: {
 		color: '#fcc367',
 		decimals: 18,
 		genesisHash: SubstrateNetworkKeys.CENTRIFUGE_AMBER,
