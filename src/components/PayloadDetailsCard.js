@@ -29,7 +29,7 @@ import { StyleSheet, Text, View, ViewPropTypes } from 'react-native';
 
 import colors from '../colors';
 import { SUBSTRATE_NETWORK_LIST, SubstrateNetworkKeys } from '../constants';
-import kusamaMetadata from '../util/static-kusama';
+//import kusamaMetadata from '../util/static-kusama';
 //import substrateDevMetadata from '../util/static-substrate';
 import centrifugeAmberMetadata from '../util/static_centrifuge_amber';
 import centrifugeMetadata from '../util/static_centrifuge';
@@ -50,11 +50,6 @@ export default class PayloadDetailsCard extends React.PureComponent {
 
 	constructor(props) {
 		super(props);
-		// KUSAMA and KUSAMA_DEV have the same metadata and Defaults values
-		const isKusama =
-			this.props.prefix ===
-				SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.KUSAMA].prefix ||
-			SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.KUSAMA_DEV].prefix;
 		const isCentrifugeAmber =
 			this.props.prefix ===
 			SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.CENTRIFUGE_AMBER].prefix;
@@ -64,14 +59,7 @@ export default class PayloadDetailsCard extends React.PureComponent {
 			SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.CENTRIFUGE].prefix;
 
 		let metadata;
-		if (isKusama) {
-			metadata = new Metadata(registry, kusamaMetadata);
-			registry.setMetadata(metadata);
-			formatBalance.setDefaults({
-				decimals: SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.KUSAMA].decimals,
-				unit: SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.KUSAMA].unit
-			});
-		} else if (isCentrifuge) {
+		if (isCentrifuge) {
 			metadata = new Metadata(registry, centrifugeMetadata);
 			registry.setMetadata(metadata);
 			formatBalance.setDefaults({
