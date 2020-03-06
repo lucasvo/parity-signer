@@ -30,7 +30,9 @@ import { StyleSheet, Text, View, ViewPropTypes } from 'react-native';
 import colors from '../colors';
 import { SUBSTRATE_NETWORK_LIST, SubstrateNetworkKeys } from '../constants';
 import kusamaMetadata from '../util/static-kusama';
-import substrateDevMetadata from '../util/static-substrate';
+//import substrateDevMetadata from '../util/static-substrate';
+import centrifugeAmberMetadata from '../util/static_centrifuge_amber';
+import centrifugeMetadata from '../util/static_centrifuge';
 import { shortString } from '../util/strings';
 import fontStyles from '../fontStyles';
 import { alertDecodeError } from '../util/alertUtils';
@@ -53,9 +55,13 @@ export default class PayloadDetailsCard extends React.PureComponent {
 			this.props.prefix ===
 				SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.KUSAMA].prefix ||
 			SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.KUSAMA_DEV].prefix;
-		const isSubstrateDev =
+		const isCentrifugeAmber =
 			this.props.prefix ===
-			SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.SUBSTRATE_DEV].prefix;
+			SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.CENTRIFUGE_AMBER].prefix;
+
+		const isCentrifuge =
+			this.props.prefix ===
+			SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.CENTRIFUGE].prefix;
 
 		let metadata;
 		if (isKusama) {
@@ -65,13 +71,22 @@ export default class PayloadDetailsCard extends React.PureComponent {
 				decimals: SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.KUSAMA].decimals,
 				unit: SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.KUSAMA].unit
 			});
-		} else if (__DEV__ && isSubstrateDev) {
-			metadata = new Metadata(registry, substrateDevMetadata);
+		} else if (isCentrifuge) {
+			metadata = new Metadata(registry, centrifugeMetadata);
 			registry.setMetadata(metadata);
 			formatBalance.setDefaults({
 				decimals:
-					SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.SUBSTRATE_DEV].decimals,
-				unit: SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.SUBSTRATE_DEV].unit
+					SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.CENTRIFUGE].decimals,
+				unit: SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.CENTRIFUGE].unit
+			});
+		} else if (isCentrifugeAmber) {
+			metadata = new Metadata(registry, centrifugeAmberMetadata);
+			registry.setMetadata(metadata);
+			formatBalance.setDefaults({
+				decimals:
+					SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.CENTRIFUGE_AMBER]
+						.decimals,
+				unit: SUBSTRATE_NETWORK_LIST[SubstrateNetworkKeys.CENTRIFUGE_AMBER].unit
 			});
 		}
 		this.state = {

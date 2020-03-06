@@ -77,3 +77,4 @@ fastlane/screenshots
 android/.project
 android/app/.project
 android/app/bin
+android/app/release
