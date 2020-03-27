@@ -45,9 +45,9 @@ export const EthereumNetworkKeys = Object.freeze({
 // genesisHash is used as Network key for Substrate networks
 export const SubstrateNetworkKeys = Object.freeze({
 	CENTRIFUGE:
-		'0x6e74a7c807a43e81e6671b5098c9906d2bc8d7df8dfc15ad19c0846ffeab170a',
+		'0x9caf5780c396ac623a42cdb48ee4a40cea9b7e187ed4b3506f8af444c258fb50',
 	CENTRIFUGE_AMBER:
-		'0x14ad1761c377ea2aac9a1f7edc648c8b7b64f2f7a1667330f4b5eeec65ab8a3f', // https://polkascan.io/pre/centrifuge-amber/block/0
+		'0x092af6e7d25178ebab1677d15f66e37b30392b44ef442f728a53dd1bf48ec110', // https://polkascan.io/pre/centrifuge-amber/block/0
 	KUSAMA: '0xb0a8d493285c2df73290dfb7e61f870f17b41801197a149ca93654499ea3dafe', // https://polkascan.io/pre/kusama-cc3/block/0
 	KUSAMA_CC2:
 		'0xe3777fa922cafbff200cadeaea1a76bd7898ad5b89f7848999058b50e715f636',
@@ -122,17 +122,9 @@ const substrateNetworkBase = {
 		genesisHash: SubstrateNetworkKeys.CENTRIFUGE,
 		pathId: 'centrifuge',
 		prefix: 36,
-		title: 'Centrifuge Mainnet Preview',
+		title: 'Centrifuge Mainnet',
 		unit: 'RAD'
 	}
-	// [SubstrateNetworkKeys.POLKADOT]: {
-	//   color: '#e6007a',
-	//   decimals: 12,
-	//   genesisHash: SubstrateNetworkKeys.POLKADOT,
-	//   prefix: 0,
-	//   title: 'Polkadot mainnet',
-	//   unit: 'DOT'
-	// }
 };
 
 const ethereumNetworkBase = {
